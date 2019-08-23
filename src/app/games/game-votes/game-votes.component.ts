@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class GameVotesComponent implements OnInit {
 
   private votes: any;
-  private isLoaded: boolean = false;
+  private isLoaded: boolean;
   public errorMessage: string;
 
   constructor(public apiService: ApiService) { }
@@ -23,7 +23,7 @@ export class GameVotesComponent implements OnInit {
       (err) => {
         this.isLoaded = true;
         console.log(err);
-        this.errorMessage = "There was an error! Please check your backend!";
+        this.errorMessage = 'There was an error! Please check your backend!';
       }
     );
   }

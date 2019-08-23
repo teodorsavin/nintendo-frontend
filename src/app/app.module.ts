@@ -12,7 +12,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { TOASTR_TOKEN, ToastrService } from './services/toastr.service';
 import { GameVotesComponent } from './games/game-votes/game-votes.component';
 
-declare let toastr: ToastrService
+declare let toastr: ToastrService;
 
 @NgModule({
   declarations: [

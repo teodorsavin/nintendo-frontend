@@ -10,12 +10,15 @@ import { ToastrService, TOASTR_TOKEN } from 'src/app/services/toastr.service';
 export class GamesListComponent implements OnInit {
 
   private games: any;
-  private isLoaded: boolean = false;
+  private isLoaded: boolean;
   private errorMessage: string;
-  private totalVotes: number = 0;
-  private maxVotes: number = 5;
+  private totalVotes: number;
+  private readonly maxVotes: number;
 
-  constructor(public apiService: ApiService, @Inject(TOASTR_TOKEN) private toastr: ToastrService) { }
+  constructor(public apiService: ApiService, @Inject(TOASTR_TOKEN) private toastr: ToastrService) {
+    this.maxVotes = 5;
+    this.totalVotes = 0;
+  }
 
   ngOnInit() {
     this.apiService.getPopularGames().subscribe(

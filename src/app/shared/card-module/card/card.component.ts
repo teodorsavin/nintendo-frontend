@@ -13,15 +13,15 @@ export class CardComponent implements OnInit {
   @Input() image: string;
   @Input() selected: boolean;
   @Input() url: string;
-  @Output() voteGame = new EventEmitter;
-  constructor() { }
+  @Output() voteGame = new EventEmitter();
+  constructor() {}
 
   ngOnInit() {
   }
 
   votedGame(id: number) {
     this.toggleSelectImage();
-    this.voteGame.emit({id: id, voted: this.selected});
+    this.voteGame.emit({id, voted: this.selected});
   }
 
   toggleSelectImage() {
