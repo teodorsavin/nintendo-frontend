@@ -1,0 +1,23 @@
+<div class="game-list-wrapper">
+  <h1>Games List</h1>
+  <div class="game-list-wrapper--loader" *ngIf="!isLoaded">
+    <img src="assets/grid.svg" />
+  </div>
+  <div class="game-list-wrapper game-list-wrapper--error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="game-list--container">
+    <app-card
+      *ngFor="let game of games"
+      [title]="game.name"
+      [content]="game.summary"
+      [image]="game.cover?.url"
+      [selected]="game.selected"
+      [id]="game.id"
+      [url]="game.url"
+      (voteGame)="voteGame($event)"
+    >
+    </app-card>
+  </div>
+</div>

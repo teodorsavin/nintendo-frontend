@@ -1,0 +1,27 @@
+<div class="card card--grid card--animate" [ngClass]="{'selected': selected}">
+  <div class="card__image">
+    <img
+    src={{image}}
+    width="100%"
+    onError="this.src='https://icon-library.net/images/no-photo-icon/no-photo-icon-1.jpg';"
+    >
+  </div>
+  <div class="card__title">
+    <div class="card__fab card__fab--shadow card__fab--animate card__fab--content-center" [ngClass]="{'selected': selected}" (click)="votedGame(id)">
+      <span *ngIf="!selected">&#43;</span>
+      <span *ngIf="selected">&#8730;</span>
+    </div>
+    <h3>{{ title }}</h3>
+    <span class="card__title--small">
+      Url: <a target="_blank" href="{{ url }}">{{url}}</a>
+    </span>
+  </div>
+  <div class="card__content">
+    <p *ngIf="content">
+      {{ content | slice: 0:200 }}
+    </p>
+    <p *ngIf="!content">
+      <img src="assets/placeholder.png" width="100%" />
+    </p>
+  </div>
+</div>

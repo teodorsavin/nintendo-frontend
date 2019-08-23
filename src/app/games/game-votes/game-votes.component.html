@@ -1,0 +1,20 @@
+<div class="poll-results">
+    <h1>Vote Results</h1>
+    <div class="poll-results--loader" *ngIf="!isLoaded">
+        <img src="assets/grid.svg" />
+    </div>
+    <div class="poll-results poll-results--error" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+    <div *ngIf="!votes && isLoaded">
+        No votes yet!
+    </div>
+    <div class="poll-result" *ngFor="let game of votes">
+        <h4 class="poll-result--title  poll-result--title__align-right">{{game.details.name}}</h4>
+        <progress max="100" value="{{game.percentage}}"></progress>
+        <div class="poll-result--value">
+          {{game.votes}} votes ({{game.percentage |  number:'1.0-2' }}%)
+
+        </div>
+    </div>
+</div>

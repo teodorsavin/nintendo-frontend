@@ -1,0 +1,81 @@
+.game-list-wrapper {
+  padding: 20px;
+}
+
+.game-list--container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 35px;
+}
+
+.game-list-wrapper--loader {
+    text-align: center;
+}
+
+.game-list-wrapper--error {
+    background-color: rgb(245, 107, 107);
+    text-align: center;
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+    .game-list--container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .game-list--container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    .game-list--container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .game-list--container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .game-list--container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+    .game-list--container {
+        grid-template-columns: 1fr;
+    }
+}
