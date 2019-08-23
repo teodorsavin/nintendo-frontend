@@ -10,15 +10,12 @@ import {
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { environment } from './../../environments/environment';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
     constructor() {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        request = request.clone({ headers: request.headers.set('user-key', environment.apiKey) });
-
         if (!request.headers.has('Content-Type')) {
             request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
         }
